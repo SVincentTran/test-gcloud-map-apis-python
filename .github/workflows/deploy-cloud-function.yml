@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Gcloud SDK environment
-        uses: google-github-actions/setups-gcloud@v0
+        uses: google-github-actions/setups-gcloud@master
         with: 
           service_account_email: "tu.tran@nganhanhmedia.com"
           service_account_key: "7c3338894376fd81619ef1aa7a159fc9c627d99e"
