@@ -19,19 +19,20 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    # Google Cloud server authentication with credentials_json key generated
       - id: auth
         name: Authenticate to Google Cloud Server
         uses: google-github-action/auth@v0
         with:
           credentials_json: ${{secrets.google_map_sa_key}}
-          
+    # Setup Google Clous sdk environment for the task          
       - name: Setup Gcloud SDK environment
         uses: google-github-actions/setup-gcloud@v0
         with:
           export_default_credentials: true
-          
+    # Test Gcloud info
       - name: Use gcloud CLI
         run: gcloud info
-        
+    # Deploy the test function to Google Cloud Functions
       - name: Deploy the function
         run: gcloud functions deploy test-hello-world --trigger-http --runtime=python39
