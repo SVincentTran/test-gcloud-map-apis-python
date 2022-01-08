@@ -27,7 +27,7 @@ jobs:
           credentials_json: ${{secrets.google_map_sa_key}}
     # Setup Google Clous sdk environment for the task          
       - name: Setup Gcloud SDK environment
-        uses: google-github-actions/setup-gcloud@v0
+        uses: google-github-actions/setup-gcloud@v0.2.1
         with:
           export_default_credentials: true
     # Test Gcloud info
