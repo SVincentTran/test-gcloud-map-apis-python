@@ -20,26 +20,25 @@ jobs:
     
     steps:
     # Google Cloud server authentication with credentials_json key generated
-      - id: auth
-        name: Authenticate to Google Cloud Server
-        uses: google-github-actions/auth@v0
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud Server'
+        uses: 'google-github-actions/auth@v0'
         with:
-          credentials_json: ${{secrets.google_map_sa_key}}
-    # Setup Google Clous sdk environment for the task          
-      - name: Setup Gcloud SDK environment
-        uses: google-github-actions/setup-gcloud@v0.2.1
-        with:
-          export_default_credentials: true
+          credentials_json: '${{secrets.google_map_sa_key}}'
+    # Setup Google Clous sdk environment for the task
+      - id: 'setup'
+        name: 'Setup Gcloud SDK environment'
+        uses: 'google-github-actions/setup-gcloud@v0.2.1'
     # Test Gcloud info
-      - name: Use gcloud CLI
-        run: gcloud info
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
     # Deploy the test function to Google Cloud Functions
-      - id: deploy
-        name: Deploy test helo world the function
-        uses: google-github-actions/deploy-cloud-functions@v0
+      - id: 'deploy'
+        name: 'Deploy test helo world the function'
+        uses: 'google-github-actions/deploy-cloud-functions@v0'
         with:
-          name: test-hello-world
-          runtime: python39
+          name: 'test-hello-world'
+          runtime: 'python39'
     # Test output after deployed function
-      - name: Test cloud function output
-        run: curl "${{steps.deploy.outputs.url}}"
+      - name: 'Test cloud function output'
+        run: 'curl "${{steps.deploy.outputs.url}}"'
