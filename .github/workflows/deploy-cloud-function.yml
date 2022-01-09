@@ -34,5 +34,12 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
     # Deploy the test function to Google Cloud Functions
-      - name: Deploy the function
-        run: gcloud functions deploy test-hello-world --trigger-http --runtime=python39
+      - id: deploy
+        name: Deploy test helo world the function
+        uses: google-github-actions/deploy-cloud-functions@v0
+        with:
+          name: test-hello-world
+          runtime: python39
+    # Test output after deployed function
+      - name: Test cloud function output
+        run: curl "${{steps.deploy.outputs.url}}"
