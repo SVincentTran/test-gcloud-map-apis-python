@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    # Checkout 
+      - id: 'checkout'
+        uses: 'actions/checkout@v2'
     # Google Cloud server authentication with credentials_json key generated
       - id: 'auth'
         name: 'Authenticate to Google Cloud Server'
