@@ -39,7 +39,7 @@ jobs:
       name: 'Deploy test helo world the function'
       uses: 'google-github-actions/deploy-cloud-functions@v0'
       with:
-        name: 'test-hello-world'
+        name: 'search_directions'
         runtime: 'python39'
     # Test output after deployed function
     - name: 'Test cloud function output'
