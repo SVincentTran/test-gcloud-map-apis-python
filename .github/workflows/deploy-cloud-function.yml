@@ -25,15 +25,15 @@ jobs:
 #     - id: 'checkout'
 #       uses: 'actions/checkout@v2'
     # Google Cloud server authentication with credentials_json key generated
-#     - id: 'auth'
-#       name: 'Authenticate to Google Cloud Server'
-#       uses: 'google-github-actions/auth@v0'
-#       with:
-#         credentials_json: '${{secrets.gcloud_gactions_sa_key}}'
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud Server'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{secrets.GCLOUD_GACTIONS_SA_KEY}}'
 #     # Setup Google Clous sdk environment for the task
-    - id: 'setup'
-      name: 'Setup Gcloud SDK environment'
-      uses: 'google-github-actions/setup-gcloud@v0.2.1'
+#     - id: 'setup'
+#       name: 'Setup Gcloud SDK environment'
+#       uses: 'google-github-actions/setup-gcloud@v0.2.1'
     # Deploy the test function to Google Cloud Functions
     - id: 'deploy'
       name: 'Deploy test helo world the function'
