@@ -31,9 +31,9 @@ jobs:
       with:
         credentials_json: '${{secrets.APPSPOT_SA_KEY}}'
 #     # Setup Google Clous sdk environment for the task
-#     - id: 'setup'
-#       name: 'Setup Gcloud SDK environment'
-#       uses: 'google-github-actions/setup-gcloud@v0.2.1'
+    - id: 'setup'
+      name: 'Setup Gcloud SDK environment'
+      uses: 'google-github-actions/setup-gcloud@v0.2.1'
     # Deploy the test function to Google Cloud Functions
     - id: 'deploy'
       name: 'Deploy test helo world the function'
