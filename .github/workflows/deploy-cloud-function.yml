@@ -17,9 +17,6 @@ on:
 jobs:
   Deploy-Hello-World:
     runs-on: 'ubuntu-latest'
-    permissions:
-      contents: 'read'
-      id-token: 'write'
     steps:
     # Checkout 
 #     - id: 'checkout'
@@ -37,12 +34,13 @@ jobs:
     # Deploy the test function to Google Cloud Functions
     - id: 'deploy'
       name: 'Deploy test helo world the function'
-      run: gcloud functions deploy search_directions --trigger-http --runtime=python39
-      # uses: 'google-github-actions/deploy-cloud-functions@v0'
-      # with:
-      #   name: 'search_directions'
-      #   runtime: 'python39'
-      #   entry_point: 'search_directions'
+      # run: gcloud functions deploy search_directions --trigger-http --runtime=python39
+      uses: 'google-github-actions/deploy-cloud-functions@v0'
+      with:
+        name: 'search_directions'
+        runtime: 'python39'
+        entry_point: 'search_directions'
+        secret_environment_variables: 'GOOGLE_FUNCTION_SOURCE=main.py'
     # Test output after deployed function
     - name: 'Test cloud function output'
       run: 'curl "${{steps.deploy.outputs.url}}"'
