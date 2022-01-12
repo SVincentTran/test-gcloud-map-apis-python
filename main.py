@@ -1,9 +1,9 @@
 # Google cloud functions imports
 from flask import escape
 import functions_framework
-import googlemaps
+# import googlemaps
 
-gmaps = googlemaps.Client(key="AIzaSyB9JWWSImc9xmKCdIuYILsujwoNOa4HAhY")
+# gmaps = googlemaps.Client(key="AIzaSyB9JWWSImc9xmKCdIuYILsujwoNOa4HAhY")
 
 @functions_framework.http
 def search_directions(request):
