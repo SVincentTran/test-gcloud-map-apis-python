@@ -16,6 +16,7 @@ def search_directions(request):
         origin = request_args['origin']
     else:
         return False
+    print(origin)
 
     if request_json and 'destination' in request_json:
         destination = request_json['destination']
@@ -23,5 +24,6 @@ def search_directions(request):
         destination = request_args['destination']
     else:
         return False
+    print(destination)
 
     return gmaps.directions(origin, destination)
