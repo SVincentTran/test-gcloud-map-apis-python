@@ -41,5 +41,5 @@ jobs:
         runtime: 'python39'
         entry_point: 'search_directions'
     # Test output after deployed function
-    - name: 'Test cloud function output'
-      run: 'curl "${{steps.deploy.outputs.url}}"'
+    # - name: 'Test cloud function output'
+      # run: 'curl "${{steps.deploy.outputs.url}}"'

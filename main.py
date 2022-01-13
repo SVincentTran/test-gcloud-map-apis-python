@@ -26,4 +26,5 @@ def search_directions(request):
         return False
     print(destination)
 
-    return gmaps.directions(origin, destination)
+    # return gmaps.directions(origin, destination)
+    return f"Hello {origin} to {destination}"
