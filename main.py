@@ -2,6 +2,7 @@
 from flask import escape
 import functions_framework
 import googlemaps
+import json
 
 gmaps = googlemaps.Client(key="AIzaSyB9JWWSImc9xmKCdIuYILsujwoNOa4HAhY")
 
@@ -26,5 +27,8 @@ def search_directions(request):
         return False
     print(destination)
 
-    return gmaps.directions(origin, destination)
+    directions = gmaps.directions(origin, destination)
+    data = json.loads(directions)
+
+    return data
     # return f"Hello {origin} to {destination}"
