@@ -28,10 +28,8 @@ def search_directions(request):
     print(destination)
 
     directions = gmaps.directions(origin, destination)
-    data = json.loads(directions)
 
     print(directions)
-    print(data)
 
-    return data
+    return directions
     # return f"Hello {origin} to {destination}"
