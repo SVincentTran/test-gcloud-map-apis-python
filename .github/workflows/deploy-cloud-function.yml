@@ -59,13 +59,13 @@ jobs:
     - name: 'Test function working'
       run: 'pytest search_directions_test.py'
 
-    # Export PORT for integration testing
-    - name: 'Export PORT 8080 for integration testing'
-      run: 'export PORT=8080'
+    # # Export PORT for integration testing
+    # - name: 'Export PORT 8080 for integration testing'
+    #   run: 'export PORT=8080'
 
-    # Integration testing
-    - name: 'Integration testing'
-      run: 'pytest search_directions_integration_test.py'
+    # # Integration testing
+    # - name: 'Integration testing'
+    #   run: 'pytest search_directions_integration_test.py'
 
     # Setup BASE_URL for system testing
     - name: 'Setup BASE_URL for system testing'
