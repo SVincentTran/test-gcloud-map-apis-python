@@ -53,7 +53,7 @@ jobs:
     
     # Setup Pytest
     - name: 'Setup Pytest'
-      run: 'pip install pytest'
+      run: 'pip install -r python_test_requirements.txt'
 
     # Test functions
     - name: 'Test function working'
