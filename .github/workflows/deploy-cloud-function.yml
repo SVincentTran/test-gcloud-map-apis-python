@@ -67,10 +67,10 @@ jobs:
     # - name: 'Integration testing'
     #   run: 'pytest search_directions_integration_test.py'
 
-    # Setup BASE_URL for system testing
-    - name: 'Setup HTTP_CLOUD_FUNC_BASE_URL for system testing'
-      run: 'export HTTP_CLOUD_FUNC_BASE_URL="${{steps.deploy.outputs.url}}"'
+    # # Setup BASE_URL for system testing
+    # - name: 'Setup HTTP_CLOUD_FUNC_BASE_URL for system testing'
+    #   run: 'export HTTP_CLOUD_FUNC_BASE_URL="${{steps.deploy.outputs.url}}"'
 
-    # System testing
-    - name: 'System testing'
-      run: 'pytest search_directions_system_test.py'
+    # # System testing
+    # - name: 'System testing'
+    #   run: 'pytest search_directions_system_test.py'
