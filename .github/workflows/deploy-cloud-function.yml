@@ -18,19 +18,23 @@ jobs:
   Deploy-Hello-World:
     runs-on: 'ubuntu-latest'
     steps:
+  
     # Checkout 
     - id: 'checkout'
       uses: 'actions/checkout@v2'
+
     # Google Cloud server authentication with credentials_json key generated
     - id: 'auth'
       name: 'Authenticate to Google Cloud Server'
       uses: 'google-github-actions/auth@v0'
       with:
         credentials_json: '${{secrets.APPSPOT_SA_KEY}}'
-#     # Setup Google Clous sdk environment for the task
+
+    # Setup Google Clous sdk environment for the task
     - id: 'setup'
       name: 'Setup Gcloud SDK environment'
       uses: 'google-github-actions/setup-gcloud@v0.2.1'
+
     # Deploy the test function to Google Cloud Functions
     - id: 'deploy'
       name: 'Deploy test helo world the function'
@@ -40,6 +44,15 @@ jobs:
         name: 'search_directions'
         runtime: 'python39'
         entry_point: 'search_directions'
-    # Test output after deployed function
-    # - name: 'Test cloud function output'
-      # run: 'curl "${{steps.deploy.outputs.url}}"'
+
+    # Test functions
+    - name: Test function working
+      run: pytest search_directions_test.py
+
+    # Integration testing
+    - name: Integration testing
+      run: pytest search_directions_integration_test.py
+
+    # System testing
+    - name: System testing
+      run: pytest search_directions_system_test.py
