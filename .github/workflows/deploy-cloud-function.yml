@@ -46,23 +46,23 @@ jobs:
         entry_point: 'search_directions'
 
     # Setup Python environment
-    - name: Setup Python
-      uses: actions/setup-python@v2'
+    - name: 'Setup Python'
+      uses: 'actions/setup-python@v2'
       with:
         python-version: 3.8
     
     # Setup Pytest
-    - name: Setup Pytest
-      run: pip install pytest
+    - name: 'Setup Pytest'
+      run: 'pip install pytest'
 
     # Test functions
-    - name: Test function working
-      run: pytest search_directions_test.py
+    - name: 'Test function working'
+      run: 'pytest search_directions_test.py'
 
     # Integration testing
-    - name: Integration testing
-      run: pytest search_directions_integration_test.py
+    - name: 'Integration testing'
+      run: 'pytest search_directions_integration_test.py'
 
     # System testing
-    - name: System testing
-      run: pytest search_directions_system_test.py
+    - name: 'System testing'
+      run: 'pytest search_directions_system_test.py'
