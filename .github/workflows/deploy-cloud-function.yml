@@ -35,8 +35,8 @@ jobs:
       name: 'Setup Gcloud SDK environment'
       uses: 'google-github-actions/setup-gcloud@v0.2.1'
 
-    # Deploy the test function to Google Cloud Functions
-    - id: 'deploy'
+    # Deploy search_directions to Google Cloud Functions
+    - id: 'deploy_1'
       name: 'Deploy searching for directions to cloud function'
       # run: gcloud functions deploy search_directions --trigger-http --runtime=python39
       uses: 'google-github-actions/deploy-cloud-functions@v0'
@@ -44,6 +44,15 @@ jobs:
         name: 'search_directions'
         runtime: 'python39'
         entry_point: 'search_directions'
+
+    # Deploy geocoding to Google Cloud Functions
+    - id: 'deploy_2'
+      name: 'Deploy geocoding to cloud function'
+      uses: 'google-github-actions/deploy-cloud-functions@v0'
+      with:
+        name: 'geocoding'
+        runtime: 'python39'
+        entry_point: 'geocoding'
 
     # Setup Python environment
     - name: 'Setup Python'
@@ -55,9 +64,13 @@ jobs:
     - name: 'Setup Pytest'
       run: 'pip install -r python_test_requirements.txt'
 
-    # Test functions
-    - name: 'Test function working'
+    # Test search_direction function
+    - name: 'Test search_directions function'
       run: 'pytest search_directions_test.py'
+
+    # Test geocoding function
+    - name: 'Test geocoding function'
+      run: 'pytest geocoding_test.py'
 
     # # Export PORT for integration testing
     # - name: 'Export PORT 8080 for integration testing'
