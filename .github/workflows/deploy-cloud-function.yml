@@ -66,19 +66,19 @@ jobs:
 
     # Test search_direction function
     - name: 'Test search_directions function'
-      run: 'pytest search_directions_test.py'
+      run: 'pytest testing/search_directions_test.py'
 
     # Test geocoding function
     - name: 'Test geocoding function'
-      run: 'pytest geocoding_test.py'
+      run: 'pytest testing/geocoding_test.py'
 
-    # # Export PORT for integration testing
-    # - name: 'Export PORT 8080 for integration testing'
-    #   run: 'export PORT=8080'
+    # Export PORT for integration testing
+    - name: 'Export PORT 8080 for integration testing'
+      run: 'export PORT=8080'
 
-    # # Integration testing
-    # - name: 'Integration testing'
-    #   run: 'pytest search_directions_integration_test.py'
+    # Integration testing
+    - name: 'Integration testing'
+      run: 'pytest testing/search_directions_integration_test.py'
 
     # # Setup BASE_URL for system testing
     # - name: 'Setup HTTP_CLOUD_FUNC_BASE_URL for system testing'
