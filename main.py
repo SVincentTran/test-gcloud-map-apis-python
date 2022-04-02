@@ -4,7 +4,7 @@ import functions_framework
 import googlemaps
 import json
 
-gmaps = googlemaps.Client(key="AIzaSyB9JWWSImc9xmKCdIuYILsujwoNOa4HAhY")
+gmaps = googlemaps.Client(key="testkey")
 
 @functions_framework.http
 def search_directions(request):
